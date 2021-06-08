@@ -21,7 +21,7 @@ package io.getlime.security.powerauth.rest.api.spring.service.v2;
 
 import com.wultra.security.powerauth.client.PowerAuthClient;
 import com.wultra.security.powerauth.client.v2.PrepareActivationResponse;
-import io.getlime.security.powerauth.rest.api.base.exception.PowerAuthActivationException;
+import io.getlime.security.powerauth.rest.api.spring.exception.PowerAuthActivationException;
 import io.getlime.security.powerauth.rest.api.model.request.v2.ActivationCreateRequest;
 import io.getlime.security.powerauth.rest.api.model.response.v2.ActivationCreateResponse;
 import org.slf4j.Logger;

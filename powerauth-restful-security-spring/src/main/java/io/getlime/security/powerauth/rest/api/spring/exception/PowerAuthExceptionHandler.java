@@ -20,7 +20,6 @@
 package io.getlime.security.powerauth.rest.api.spring.exception;
 
 import io.getlime.core.rest.model.base.response.ErrorResponse;
-import io.getlime.security.powerauth.rest.api.base.exception.*;
 import io.getlime.security.powerauth.rest.api.model.exception.RecoveryErrorResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

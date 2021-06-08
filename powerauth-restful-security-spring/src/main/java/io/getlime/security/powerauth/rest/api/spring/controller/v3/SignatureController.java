@@ -21,10 +21,10 @@ package io.getlime.security.powerauth.rest.api.spring.controller.v3;
 
 import io.getlime.core.rest.model.base.response.Response;
 import io.getlime.security.powerauth.crypto.lib.enums.PowerAuthSignatureTypes;
-import io.getlime.security.powerauth.rest.api.base.authentication.PowerAuthApiAuthentication;
-import io.getlime.security.powerauth.rest.api.base.exception.PowerAuthAuthenticationException;
-import io.getlime.security.powerauth.rest.api.base.exception.authentication.PowerAuthInvalidRequestException;
-import io.getlime.security.powerauth.rest.api.base.exception.authentication.PowerAuthSignatureInvalidException;
+import io.getlime.security.powerauth.rest.api.spring.authentication.PowerAuthApiAuthentication;
+import io.getlime.security.powerauth.rest.api.spring.exception.PowerAuthAuthenticationException;
+import io.getlime.security.powerauth.rest.api.spring.exception.authentication.PowerAuthInvalidRequestException;
+import io.getlime.security.powerauth.rest.api.spring.exception.authentication.PowerAuthSignatureInvalidException;
 import io.getlime.security.powerauth.rest.api.spring.annotation.PowerAuth;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

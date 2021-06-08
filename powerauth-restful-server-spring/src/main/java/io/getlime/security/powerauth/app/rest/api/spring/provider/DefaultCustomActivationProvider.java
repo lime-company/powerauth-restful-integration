@@ -19,7 +19,7 @@
  */
 package io.getlime.security.powerauth.app.rest.api.spring.provider;
 
-import io.getlime.security.powerauth.rest.api.base.provider.CustomActivationProvider;
+import io.getlime.security.powerauth.rest.api.spring.provider.CustomActivationProvider;
 import io.getlime.security.powerauth.rest.api.model.entity.ActivationType;
 import org.springframework.stereotype.Component;
 

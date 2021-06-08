@@ -20,9 +20,9 @@
 package io.getlime.security.powerauth.app.rest.api.spring.controller;
 
 import io.getlime.core.rest.model.base.response.ObjectResponse;
-import io.getlime.security.powerauth.rest.api.base.authentication.PowerAuthApiAuthentication;
-import io.getlime.security.powerauth.rest.api.base.exception.PowerAuthAuthenticationException;
-import io.getlime.security.powerauth.rest.api.base.exception.authentication.PowerAuthSignatureInvalidException;
+import io.getlime.security.powerauth.rest.api.spring.authentication.PowerAuthApiAuthentication;
+import io.getlime.security.powerauth.rest.api.spring.exception.PowerAuthAuthenticationException;
+import io.getlime.security.powerauth.rest.api.spring.exception.authentication.PowerAuthSignatureInvalidException;
 import io.getlime.security.powerauth.rest.api.spring.annotation.PowerAuth;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

@@ -19,7 +19,7 @@
  */
 package io.getlime.security.powerauth.app.rest.api.spring.configuration;
 
-import io.getlime.security.powerauth.rest.api.base.application.PowerAuthApplicationConfiguration;
+import io.getlime.security.powerauth.rest.api.spring.application.PowerAuthApplicationConfiguration;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.Map;
