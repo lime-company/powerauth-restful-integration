@@ -25,10 +25,12 @@ import com.wultra.security.powerauth.client.model.error.PowerAuthErrorRecovery;
 import com.wultra.security.powerauth.client.v3.*;
 import io.getlime.security.powerauth.rest.api.spring.application.PowerAuthApplicationConfiguration;
 import io.getlime.security.powerauth.rest.api.spring.authentication.PowerAuthApiAuthentication;
+import io.getlime.security.powerauth.rest.api.spring.converter.v3.ActivationContextConverter;
 import io.getlime.security.powerauth.rest.api.spring.encryption.EciesEncryptionContext;
 import io.getlime.security.powerauth.rest.api.spring.exception.PowerAuthActivationException;
 import io.getlime.security.powerauth.rest.api.spring.exception.PowerAuthRecoveryException;
 import io.getlime.security.powerauth.rest.api.spring.exception.authentication.PowerAuthInvalidRequestException;
+import io.getlime.security.powerauth.rest.api.spring.model.ActivationContext;
 import io.getlime.security.powerauth.rest.api.spring.provider.CustomActivationProvider;
 import io.getlime.security.powerauth.rest.api.model.entity.ActivationType;
 import io.getlime.security.powerauth.rest.api.model.request.v3.ActivationLayer1Request;
@@ -65,6 +67,8 @@ public class ActivationService {
 
     private CustomActivationProvider activationProvider;
 
+    private ActivationContextConverter activationContextConverter;
+
     private static final Logger logger = LoggerFactory.getLogger(ActivationService.class);
 
     /**
@@ -92,6 +96,15 @@ public class ActivationService {
     @Autowired(required = false)
     public void setPowerAuthActivationProvider(CustomActivationProvider activationProvider) {
         this.activationProvider = activationProvider;
+    }
+
+    /**
+     * Set activation context converter via setter injection.
+     * @param activationContextConverter Activation context converter.
+     */
+    @Autowired
+    public void setActivationContextConverter(ActivationContextConverter activationContextConverter) {
+        this.activationContextConverter = activationContextConverter;
     }
 
     /**
@@ -353,7 +366,8 @@ public class ActivationService {
             response.setEncryptedStatusBlob(paResponse.getEncryptedStatusBlob());
             response.setNonce(paResponse.getEncryptedStatusBlobNonce());
             if (applicationConfiguration != null) {
-                response.setCustomObject(applicationConfiguration.statusServiceCustomObject());
+                final ActivationContext activationContext = activationContextConverter.fromActivationDetailResponse(paResponse);
+                response.setCustomObject(applicationConfiguration.statusServiceCustomObject(activationContext));
             }
             return response;
         } catch (Exception ex) {

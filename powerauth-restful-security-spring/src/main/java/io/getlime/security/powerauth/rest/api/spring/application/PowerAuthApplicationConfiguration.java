@@ -19,6 +19,8 @@
  */
 package io.getlime.security.powerauth.rest.api.spring.application;
 
+import io.getlime.security.powerauth.rest.api.spring.model.ActivationContext;
+
 import java.util.Map;
 
 /**
@@ -32,9 +34,14 @@ public interface PowerAuthApplicationConfiguration {
     /**
      * In order to minimize number of up-front request, /pa/activation/status end-point may return
      * any custom state-less object with an information about the service (such as current timestamp,
-     * service outage info, etc.). Default implementation may simply return null.
+     * service outage info, etc.), or an activation-scoped object. When fetching the activation scoped
+     * object, developers should pay attention to the performance. Status endpoint is a frequently called
+     * endpoint and hence any queries should use low-latency services. Default implementation may simply
+     * return null.
+     *
+     * @param activationContext Activation context.
      * @return Custom object with state-less information about the API server status.
      */
-    Map<String, Object> statusServiceCustomObject();
+    Map<String, Object> statusServiceCustomObject(ActivationContext activationContext);
 
 }
